@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ThinkGeo.MapSuite;
+using ThinkGeo.MapSuite.Shapes;
+using ThinkGeo.MapSuite.Wpf;
 
 namespace HelloWorld
 {
@@ -23,6 +26,16 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            wpfMap.MapUnit = ThinkGeo.MapSuite.GeographyUnit.DecimalDegree;
+            wpfMap.CurrentExtent = new RectangleShape(-134.01, 70.00, 56.60, 7.50);
+
+            wpfMap.Overlays.Add(new WorldStreetsAndImageryOverlay());
+
+            wpfMap.Refresh();
         }
     }
 }

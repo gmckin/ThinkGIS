@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:HelloWorld"
         xmlns:Wpf="clr-namespace:ThinkGeo.MapSuite.Wpf;assembly=ThinkGeo.MapSuite.Wpf" x:Class="HelloWorld.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="525" Loaded="Window_Loaded">
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded" Background="Blue">
     <Grid>
 
-        <Wpf:WpfMap Name="wpfMap" HorizontalAlignment="Left" Height="559" Margin="10,0,0,0" VerticalAlignment="Top" Width="497"/>
+        <Wpf:WpfMap Name="wpfMap" HorizontalAlignment="Left" Height="559" Margin="10,0,0,0" VerticalAlignment="Top" Width="772"/>
 
     </Grid>
 </Window>

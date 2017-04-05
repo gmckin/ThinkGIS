@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     /// <summary>
-    /// Interaction logic for LoadingImageUserControl.xaml
+    /// Interaction logic for Loading.xaml
     /// </summary>
-    public partial class LoadingImageUserControl : Window
+    public partial class LoadingImageUserControl : UserControl
     {
+        private readonly DispatcherTimer animationTimer;
+
         public LoadingImageUserControl()
         {
             InitializeComponent();
-            //animationTimer = new DispatcherTimer(DispatcherPriority.ContextIdle, Dispatcher);
-            //animationTimer.Interval = new TimeSpan(0, 0, 0, 0, 90);
+            animationTimer = new DispatcherTimer(
+                DispatcherPriority.ContextIdle, Dispatcher);
+            animationTimer.Interval = new TimeSpan(0, 0, 0, 0, 90);
         }
 
         private void HandleAnimationTick(object sender, EventArgs e)
@@ -46,47 +40,44 @@ namespace ThinkGeo.MapSuite.VehicleTracker
             SetPosition(C6, offset, 6.0, step);
             SetPosition(C7, offset, 7.0, step);
             SetPosition(C8, offset, 8.0, step);
-
         }
 
         private void HandleUnloaded(object sender, RoutedEventArgs e)
-         { 
-             Stop(); 
-         } 
- 
- 
-         private void HandleVisibleChanged(object sender,
-             DependencyPropertyChangedEventArgs e)
-         { 
-             bool isVisible = (bool)e.NewValue; 
-  
-             if (isVisible) 
-                 Start(); 
-             else 
-                 Stop(); 
-         } 
- 
- 
-         private void SetPosition(Ellipse ellipse, double offset,
-             double posOffSet, double step)
-         { 
-             ellipse.SetValue(Canvas.LeftProperty, 50.0 
-                 + Math.Sin(offset + posOffSet* step) * 50.0); 
- 
-             ellipse.SetValue(Canvas.TopProperty, 50 
-                 + Math.Cos(offset + posOffSet* step) * 50.0); 
-         } 
- 
+        {
+            Stop();
+        }
+
+        private void HandleVisibleChanged(object sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            bool isVisible = (bool)e.NewValue;
+
+            if (isVisible)
+                Start();
+            else
+                Stop();
+        }
+
+        private void SetPosition(Ellipse ellipse, double offset,
+            double posOffSet, double step)
+        {
+            ellipse.SetValue(Canvas.LeftProperty, 50.0
+                + Math.Sin(offset + posOffSet * step) * 50.0);
+
+            ellipse.SetValue(Canvas.TopProperty, 50
+                + Math.Cos(offset + posOffSet * step) * 50.0);
+        }
+
         private void Start()
-         { 
-             //animationTimer.Tick += HandleAnimationTick; 
-             //animationTimer.Start(); 
-         } 
- 
-         private void Stop()
-         { 
-             //animationTimer.Stop(); 
-             //animationTimer.Tick -= HandleAnimationTick; 
-         } 
-     } 
-} 
+        {
+            animationTimer.Tick += HandleAnimationTick;
+            animationTimer.Start();
+        }
+
+        private void Stop()
+        {
+            animationTimer.Stop();
+            animationTimer.Tick -= HandleAnimationTick;
+        }
+    }
+}

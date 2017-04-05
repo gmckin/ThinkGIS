@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ThinkGeo.MapSuite.Shapes;
+using ThinkGeo.MapSuite.VehicleTracking;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public abstract class TrackingDataProvider : IDisposable
     {

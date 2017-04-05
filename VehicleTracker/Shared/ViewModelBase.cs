@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

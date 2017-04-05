@@ -14,11 +14,11 @@ using ThinkGeo.MapSuite.Drawing;
 using ThinkGeo.MapSuite.Layers;
 using ThinkGeo.MapSuite.Shapes;
 using ThinkGeo.MapSuite.Styles;
-//using ThinkGeo.MapSuite.VehicleTracker.Properties;
-using ThinkGeo.MapSuite.Wpf;
-using VehicleTracker.Properties;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+using ThinkGeo.MapSuite.Wpf;
+using VehicleTracking.Properties;
+
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class MainWindowViewModel : ViewModelBase
     {

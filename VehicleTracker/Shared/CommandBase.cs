@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class CommandBase : ICommand
     {

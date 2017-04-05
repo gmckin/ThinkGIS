@@ -7,8 +7,8 @@
     <ProjectGuid>{627C0BB0-5CB7-452C-9354-73420DA6DDFC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VehicleTracker</RootNamespace>
-    <AssemblyName>VehicleTracker</AssemblyName>
+    <RootNamespace>VehicleTracking</RootNamespace>
+    <AssemblyName>VehicleTracking</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

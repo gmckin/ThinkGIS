@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using ThinkGeo.MapSuite.VehicleTracking;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class EnumToBoolConverter : IValueConverter
     {

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using ThinkGeo.MapSuite.Layers;
+using ThinkGeo.MapSuite.VehicleTracking;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class VehicleViewModel : ViewModelBase
     {

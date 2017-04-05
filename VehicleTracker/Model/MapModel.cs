@@ -8,9 +8,8 @@ using ThinkGeo.MapSuite.Drawing;
 using ThinkGeo.MapSuite.Layers;
 using ThinkGeo.MapSuite.Shapes;
 using ThinkGeo.MapSuite.Styles;
-
+using ThinkGeo.MapSuite.VehicleTracking.Properties;
 using ThinkGeo.MapSuite.Wpf;
-
 
 namespace ThinkGeo.MapSuite.VehicleTracking
 {
@@ -145,87 +144,85 @@ namespace ThinkGeo.MapSuite.VehicleTracking
         {
             string cacheFolder = Path.Combine(Path.GetTempPath(), "TileCache");
 
-#pragma warning disable CS0618 // Type or member is obsolete
             WorldMapKitWmsWpfOverlay worldMapKitRoadOverlay = new WorldMapKitWmsWpfOverlay();
-#pragma warning restore CS0618 // Type or member is obsolete
-         //   worldMapKitRoadOverlay.Name = Resources.WorldMapKitOverlayRoadName;
+            worldMapKitRoadOverlay.Name = Resources.WorldMapKitOverlayRoadName;
             worldMapKitRoadOverlay.TileHeight = 512;
             worldMapKitRoadOverlay.TileWidth = 512;
-         //   worldMapKitRoadOverlay.Projection = WorldMapKitProjection.SphericalMercator;
-          //  worldMapKitRoadOverlay.MapType = WorldMapKitMapType.Road;
+            worldMapKitRoadOverlay.Projection = WorldMapKitProjection.SphericalMercator;
+            worldMapKitRoadOverlay.MapType = WorldMapKitMapType.Road;
             worldMapKitRoadOverlay.IsVisible = true;
-          //  worldMapKitRoadOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayRoadName);
+            worldMapKitRoadOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayRoadName);
             mapControl.Overlays.Add(worldMapKitRoadOverlay);
 
             WorldMapKitWmsWpfOverlay worldMapKitAerialOverlay = new WorldMapKitWmsWpfOverlay();
-          //  worldMapKitAerialOverlay.Name = Resources.WorldMapKitOverlayAerialName;
+            worldMapKitAerialOverlay.Name = Resources.WorldMapKitOverlayAerialName;
             worldMapKitAerialOverlay.TileHeight = 512;
             worldMapKitAerialOverlay.TileWidth = 512;
-          //  worldMapKitAerialOverlay.Projection = WorldMapKitProjection.SphericalMercator;
-         //   worldMapKitAerialOverlay.MapType = WorldMapKitMapType.Aerial;
+            worldMapKitAerialOverlay.Projection = WorldMapKitProjection.SphericalMercator;
+            worldMapKitAerialOverlay.MapType = WorldMapKitMapType.Aerial;
             worldMapKitAerialOverlay.IsVisible = false;
-        //    worldMapKitAerialOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayAerialName);
+            worldMapKitAerialOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayAerialName);
             mapControl.Overlays.Add(worldMapKitAerialOverlay);
 
             WorldMapKitWmsWpfOverlay worldMapKitAerialWithLabelsOverlay = new WorldMapKitWmsWpfOverlay();
-           // worldMapKitAerialWithLabelsOverlay.Name = Resources.WorldMapKitOverlayAerialWithLabelsName;
+            worldMapKitAerialWithLabelsOverlay.Name = Resources.WorldMapKitOverlayAerialWithLabelsName;
             worldMapKitAerialWithLabelsOverlay.TileHeight = 512;
             worldMapKitAerialWithLabelsOverlay.TileWidth = 512;
-          //  worldMapKitAerialWithLabelsOverlay.Projection = WorldMapKitProjection.SphericalMercator;
-          //  worldMapKitAerialWithLabelsOverlay.MapType = WorldMapKitMapType.AerialWithLabels;
+            worldMapKitAerialWithLabelsOverlay.Projection = WorldMapKitProjection.SphericalMercator;
+            worldMapKitAerialWithLabelsOverlay.MapType = WorldMapKitMapType.AerialWithLabels;
             worldMapKitAerialWithLabelsOverlay.IsVisible = false;
-          //  worldMapKitAerialWithLabelsOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayAerialWithLabelsName);
+            worldMapKitAerialWithLabelsOverlay.TileCache = new FileBitmapTileCache(cacheFolder, Resources.WorldMapKitOverlayAerialWithLabelsName);
             mapControl.Overlays.Add(worldMapKitAerialWithLabelsOverlay);
 
             OpenStreetMapOverlay openStreetMapOverlay = new OpenStreetMapOverlay();
-          //  openStreetMapOverlay.Name = Resources.OpenStreetMapName;
+            openStreetMapOverlay.Name = Resources.OpenStreetMapName;
             openStreetMapOverlay.TileHeight = 512;
             openStreetMapOverlay.TileWidth = 512;
             openStreetMapOverlay.IsVisible = false;
             openStreetMapOverlay.TileCache = new FileBitmapTileCache(cacheFolder, "OpenStreetMap");
-         //   mapControl.Overlays.Add(Resources.OpenStreetMapKey, openStreetMapOverlay);
+            mapControl.Overlays.Add(Resources.OpenStreetMapKey, openStreetMapOverlay);
 
             BingMapsOverlay bingMapsAerialOverlay = new BingMapsOverlay();
-         //   bingMapsAerialOverlay.Name = Resources.BingMapsAerialMapName;
+            bingMapsAerialOverlay.Name = Resources.BingMapsAerialMapName;
             bingMapsAerialOverlay.TileHeight = 512;
             bingMapsAerialOverlay.TileWidth = 512;
-         //   bingMapsAerialOverlay.MapType = BingMapsMapType.Aerial;
+            bingMapsAerialOverlay.MapType = BingMapsMapType.Aerial;
             bingMapsAerialOverlay.IsVisible = false;
             bingMapsAerialOverlay.TileCache = new FileBitmapTileCache(cacheFolder, "BingMapsAerial");
-         //   mapControl.Overlays.Add(Resources.BingAerialKey, bingMapsAerialOverlay);
+            mapControl.Overlays.Add(Resources.BingAerialKey, bingMapsAerialOverlay);
 
             BingMapsOverlay bingMapsRoadOverlay = new BingMapsOverlay();
-          //  bingMapsRoadOverlay.Name = Resources.BingMapsRoadMapName;
+            bingMapsRoadOverlay.Name = Resources.BingMapsRoadMapName;
             bingMapsRoadOverlay.TileHeight = 512;
             bingMapsRoadOverlay.TileWidth = 512;
-        //    bingMapsRoadOverlay.MapType = BingMapsMapType.Road;
+            bingMapsRoadOverlay.MapType = BingMapsMapType.Road;
             bingMapsRoadOverlay.IsVisible = false;
             bingMapsRoadOverlay.TileCache = new FileBitmapTileCache(cacheFolder, "BingMapsRoad");
-        //    mapControl.Overlays.Add(Resources.BingRoadKey, bingMapsRoadOverlay);
+            mapControl.Overlays.Add(Resources.BingRoadKey, bingMapsRoadOverlay);
 
             InMemoryFeatureLayer spatialFenceLayer = new InMemoryFeatureLayer();
             spatialFenceLayer.Open();
-        //    spatialFenceLayer.Columns.Add(new FeatureSourceColumn(Resources.RestrictedName, "Charater", 10));
+            spatialFenceLayer.Columns.Add(new FeatureSourceColumn(Resources.RestrictedName, "Charater", 10));
             spatialFenceLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = new AreaStyle(new GeoPen(GeoColor.FromArgb(255, 204, 204, 204), 2), new GeoSolidBrush(GeoColor.FromArgb(112, 255, 0, 0)));
-         //   spatialFenceLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.CreateSimpleTextStyle(Resources.RestrictedName, "Arial", 12, DrawingFontStyles.Regular, GeoColor.StandardColors.Black, GeoColor.SimpleColors.White, 2);
+            spatialFenceLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.CreateSimpleTextStyle(Resources.RestrictedName, "Arial", 12, DrawingFontStyles.Regular, GeoColor.StandardColors.Black, GeoColor.SimpleColors.White, 2);
             spatialFenceLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
             LayerOverlay spatialFenceOverlay = new LayerOverlay();
             spatialFenceOverlay.TileType = TileType.SingleTile;
-        //    spatialFenceOverlay.Name = Resources.SpatialFenceOverlayName;
-        //    spatialFenceOverlay.Layers.Add(Resources.SpatialFenceLayerName, spatialFenceLayer);
-        //    mapControl.Overlays.Add(Resources.SpatialFenceOverlayName, spatialFenceOverlay);
+            spatialFenceOverlay.Name = Resources.SpatialFenceOverlayName;
+            spatialFenceOverlay.Layers.Add(Resources.SpatialFenceLayerName, spatialFenceLayer);
+            mapControl.Overlays.Add(Resources.SpatialFenceOverlayName, spatialFenceOverlay);
 
             LayerOverlay traceOverlay = new LayerOverlay();
-       //     traceOverlay.Name = Resources.TraceOverlayName;
+            traceOverlay.Name = Resources.TraceOverlayName;
             traceOverlay.TileType = TileType.SingleTile;
-       //     mapControl.Overlays.Add(Resources.TraceOverlayName, traceOverlay);
+            mapControl.Overlays.Add(Resources.TraceOverlayName, traceOverlay);
 
-       //     mapControl.Overlays.Add(Resources.PopupOverlayName, new PopupOverlay { Name = Resources.PopupOverlayName });
+            mapControl.Overlays.Add(Resources.PopupOverlayName, new PopupOverlay { Name = Resources.PopupOverlayName });
 
             ScaleBarAdornmentLayer scaleBarAdormentLayer = new ScaleBarAdornmentLayer();
             scaleBarAdormentLayer.UnitFamily = UnitSystem.Metric;
-       //     mapControl.AdornmentOverlay.Layers.Add(Resources.ScaleBarName, scaleBarAdormentLayer);
+            mapControl.AdornmentOverlay.Layers.Add(Resources.ScaleBarName, scaleBarAdormentLayer);
         }
 
         private void InitializeMapTools()

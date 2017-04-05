@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,60 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BingAerialKey" xml:space="preserve">
+    <value>BingAerial</value>
+  </data>
+  <data name="BingMapsAerialMapName" xml:space="preserve">
+    <value>Bing Maps Aerial Map</value>
+  </data>
+  <data name="BingMapsRoadMapName" xml:space="preserve">
+    <value>Bing Maps Road Map</value>
+  </data>
+  <data name="BingRoadKey" xml:space="preserve">
+    <value>BingRoad</value>
+  </data>
+  <data name="ChooseFenceWarning" xml:space="preserve">
+    <value>Please choose a fence!</value>
+  </data>
+  <data name="DeleteFenceWarning" xml:space="preserve">
+    <value>Are you sure you want to delete the fence you have selected?</value>
+  </data>
+  <data name="OpenStreetMapKey" xml:space="preserve">
+    <value>OpenStreetMap</value>
+  </data>
+  <data name="OpenStreetMapName" xml:space="preserve">
+    <value>Open Street Map</value>
+  </data>
+  <data name="PopupOverlayName" xml:space="preserve">
+    <value>PopupOverlay</value>
+  </data>
+  <data name="RestrictedName" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="ScaleBarName" xml:space="preserve">
+    <value>ScaleBar</value>
+  </data>
+  <data name="SpatialFenceLayerName" xml:space="preserve">
+    <value>SpatialFenceLayer</value>
+  </data>
+  <data name="SpatialFenceOverlayName" xml:space="preserve">
+    <value>SpatialFenceOverlay</value>
+  </data>
+  <data name="TraceOverlayName" xml:space="preserve">
+    <value>TraceOverlay</value>
+  </data>
+  <data name="WorldMapKitOverlayAerialName" xml:space="preserve">
+    <value>World Map Kit Aerial</value>
+  </data>
+  <data name="WorldMapKitOverlayAerialWithLabelsName" xml:space="preserve">
+    <value>World Map Kit Aerial With Labels</value>
+  </data>
+  <data name="WorldMapKitOverlayRoadName" xml:space="preserve">
+    <value>World Map Kit Road</value>
+  </data>
 </root>

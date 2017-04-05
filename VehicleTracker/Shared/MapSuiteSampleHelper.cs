@@ -9,7 +9,7 @@ using System.Xml;
 using ThinkGeo.MapSuite.Shapes;
 using ThinkGeo.MapSuite.Wpf;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public static class MapSuiteSampleHelper
     {

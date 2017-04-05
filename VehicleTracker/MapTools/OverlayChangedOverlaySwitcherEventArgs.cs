@@ -1,7 +1,7 @@
 ﻿using System;
 using ThinkGeo.MapSuite.Wpf;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class OverlayChangedOverlaySwitcherEventArgs : EventArgs
     {

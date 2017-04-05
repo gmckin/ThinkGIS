@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ThinkGeo.MapSuite.Shapes;
 using ThinkGeo.MapSuite.Wpf;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     /// <summary>
     /// Interaction logic for PopupUserControl.xaml
@@ -25,64 +13,54 @@ namespace ThinkGeo.MapSuite.VehicleTracker
     {
         private PopupOverlay popupOverlay;
 
-
         public PopupUserControl()
             : this(string.Empty)
         { }
 
-
         public PopupUserControl(Feature feature)
         {
-            //InitializeComponent();
+            InitializeComponent();
 
+            string speed = feature.ColumnValues["Speed"];
+            string name = feature.ColumnValues["VehicleName"];
+            string latitude = feature.ColumnValues["Latitude"];
+            string dateTime = feature.ColumnValues["DateTime"];
+            string longitude = feature.ColumnValues["Longitude"];
 
-            //string speed = feature.ColumnValues["Speed"];
-            //string name = feature.ColumnValues["VehicleName"];
-            //string latitude = feature.ColumnValues["Latitude"];
-            //string dateTime = feature.ColumnValues["DateTime"];
-            //string longitude = feature.ColumnValues["Longitude"];
+            txtName.Text = name;
+            double x, y;
+            if (double.TryParse(longitude, out x) && double.TryParse(latitude, out y))
+            {
+                Proj4Projection proj4 = new Proj4Projection();
+                proj4.InternalProjectionParametersString = Proj4Projection.GetDecimalDegreesParametersString();
+                proj4.ExternalProjectionParametersString = Proj4Projection.GetGoogleMapParametersString();
+                proj4.Open();
 
+                Vertex vertex = proj4.ConvertToInternalProjection(x, y);
+                txtLongitude.Text = vertex.X.ToString("N6", CultureInfo.InvariantCulture);
+                txtLatitude.Text = vertex.Y.ToString("N6", CultureInfo.InvariantCulture);
 
-            //txtName.Text = name;
-            //double x, y;
-            //if (double.TryParse(longitude, out x) && double.TryParse(latitude, out y))
-            //{
-            //    Proj4Projection proj4 = new Proj4Projection();
-            //    proj4.InternalProjectionParametersString = Proj4Projection.GetDecimalDegreesParametersString();
-            //    proj4.ExternalProjectionParametersString = Proj4Projection.GetGoogleMapParametersString();
-            //    proj4.Open();
+                proj4.Close();
+            }
+            else
+            {
+                txtLongitude.Text = longitude;
+                txtLatitude.Text = latitude;
+            }
 
-
-            //    Vertex vertex = proj4.ConvertToInternalProjection(x, y);
-            //    txtLongitude.Text = vertex.X.ToString("N6", CultureInfo.InvariantCulture);
-            //    txtLatitude.Text = vertex.Y.ToString("N6", CultureInfo.InvariantCulture);
-
-
-            //    proj4.Close();
-            //}
-            //else
-            //{
-            //    txtLongitude.Text = longitude;
-            //    txtLatitude.Text = latitude;
-            //}
-
-
-            //txtSpeed.Text = speed + " mph";
-            //txtTime.Text = dateTime;
+            txtSpeed.Text = speed + " mph";
+            txtTime.Text = dateTime;
         }
-
 
         public PopupUserControl(string content)
         {
-            //InitializeComponent();
+            InitializeComponent();
 
-
-            //txtContent.Text = content;
-            //txtContent.Visibility = Visibility.Visible;
-            //vehiclePanel.Visibility = Visibility.Collapsed;
-            //txtName.Visibility = Visibility.Collapsed;
+            txtContent.Text = content;
+            txtContent.Visibility = Visibility.Visible;
+            vehiclePanel.Visibility = Visibility.Collapsed;
+            txtName.Visibility = Visibility.Collapsed;
         }
-
 
         public PopupOverlay PopupOverlay
         {
@@ -90,12 +68,11 @@ namespace ThinkGeo.MapSuite.VehicleTracker
             set { popupOverlay = value; }
         }
 
-
         private void ClosePopupClick(object sender, RoutedEventArgs e)
         {
             if (PopupOverlay != null)
             {
-                PopupOverlay.Popups.Remove((Popup)Parent);
+                PopupOverlay.Popups.Remove((Popup) Parent);
                 PopupOverlay.Refresh();
             }
         }

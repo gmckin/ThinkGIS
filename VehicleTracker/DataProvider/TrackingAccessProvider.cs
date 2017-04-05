@@ -6,8 +6,9 @@ using System.Data.OleDb;
 using System.Globalization;
 using System.Text;
 using ThinkGeo.MapSuite.Shapes;
+using ThinkGeo.MapSuite.VehicleTracking;
 
-namespace ThinkGeo.MapSuite.VehicleTracker
+namespace ThinkGeo.MapSuite.VehicleTracking
 {
     public class TrackingAccessProvider : TrackingDataProvider
     {
@@ -40,7 +41,7 @@ namespace ThinkGeo.MapSuite.VehicleTracker
             string sql = "SELECT A.VehicleName, A.VehicleID, A.VehicleIconVirtualPath, B.Longitude, B.Latitude, B.[Date], B.Speed FROM (Vehicle A LEFT OUTER JOIN Location B ON A.VehicleID = B.VehicleID) WHERE (A.VehicleID = {0}) AND (B.[Date] <= #{1}# and B.[Date]>=#{2}#) ORDER BY A.VehicleID, B.[Date] DESC";
             DateTime trackStartTime = currentTime.AddTicks(-trackHistoryVehicleTimeSpan.Ticks);
             sql = String.Format(CultureInfo.InvariantCulture, sql, vehicleId, currentTime.ToString(CultureInfo.InvariantCulture), trackStartTime.ToString(CultureInfo.InvariantCulture));
-
+            
             Vehicle currentVechicle = new Vehicle(vehicleId);
             DataSet currentLocations = null;
             try
@@ -134,7 +135,7 @@ namespace ThinkGeo.MapSuite.VehicleTracker
             }
             finally
             {
-                if (dataAdapter != null) { dataAdapter.Dispose(); }
+                if (dataAdapter != null){dataAdapter.Dispose();}
                 if (dataConnection != null) { dataConnection.Close(); }
             }
         }
